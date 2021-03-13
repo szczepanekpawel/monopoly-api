@@ -14,7 +14,8 @@ export interface Table {
 
 @Injectable()
 export class GameLogicProvider {
-  private tables: { [key: string]: Table };
+
+  private tables: { [key: string]: Table } = {};
 
   createNewTableIfNotExist(tableName) {
     if (!this.tables.hasOwnProperty(tableName)) {
@@ -31,6 +32,7 @@ export class GameLogicProvider {
 
   addPlayerToTable(tableName, playerId) {
     this.tables[tableName].players.push(playerId);
+    return this.tables[tableName].players.length;
   }
 
   removePlayerFromAllTables(playerId) {

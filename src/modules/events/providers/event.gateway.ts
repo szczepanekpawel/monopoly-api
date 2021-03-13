@@ -20,7 +20,7 @@ export class EventsGateway
 
   constructor(private gameLogicProvider: GameLogicProvider) {}
 
-  @SubscribeMessage(IncomingMessagesTypes.JOIN_TABLE)
+  @SubscribeMessage('JoinTable')
   handleJoinTable(
     @MessageBody() table: string,
     @ConnectedSocket() client: Socket,
@@ -28,7 +28,7 @@ export class EventsGateway
     this.gameLogicProvider.createNewTableIfNotExist(table);
 
     if (!this.gameLogicProvider.isTherePlaceOnTheTable(table)) {
-      client.to(table).emit(OutcomingMessagesTypes.TABLE_IS_FULL);
+      client.emit(OutcomingMessagesTypes.TABLE_IS_FULL);
     } else {
       this.gameLogicProvider.addPlayerToTable(table, client.id);
 
