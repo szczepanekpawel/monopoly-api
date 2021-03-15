@@ -1,6 +1,5 @@
 export enum OutcomingMessagesTypes {
   TABLE_IS_FULL = 'TableIsFull',
-  YOU_JOINED_TO_TABLE = 'YouJoinedToTable',
-  OTHER_PLAYER_JOINED_TO_TABLE = 'OtherPlayerJoinedToTable',
+  PLAYER_JOINED_TO_TABLE = 'PlayerJoinedToTable',
   GAME_STARTED = 'GameStarted',
 }

@@ -6,8 +6,8 @@ import getClient from './client';
 const game = new Phaser.Game({
   type: Phaser.AUTO,
   parent: 'phaser-example',
-  width: 800,
-  height: 800,
+  width: window.innerWidth,
+  height: window.innerHeight,
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
